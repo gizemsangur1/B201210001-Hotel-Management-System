@@ -7,8 +7,8 @@ $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres passw
         {
             $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres password= rnyclvrby");
             $t_num=$_POST["t_num"];
-            $fname=$_POST["food_name"];
-            $query="call add_order(".$t_num.",'".$fname."')";
+            $fname=$_POST["total"];
+            $query="call add_res_bill(".$t_num.",".$fname.")";
 
             $res=pg_query($cn,$query);
 
@@ -31,6 +31,21 @@ $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres passw
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Waiter</title>
+    <script>
+                      function totalit()
+                    {
+                      var input=document.getElementsByName("food_price");
+                      var total=0;
+                      for(var i=0;i<input.length;i++)
+                      {
+                        if(input[i].checked)
+                        {
+                          total +=parseFloat(input[i].value);
+                        }
+                      }
+                      document.getElementById("total").value =   total.toFixed(2);
+                    }
+                      </script>
 </head>
 <body>
 <section id="first">
@@ -53,19 +68,14 @@ $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres passw
                               ?>
                                 </select>
                               <br>
-                              <select name="food_name"  id="input">
-                      <?php
-                              $i=0;
-                              while($row=pg_fetch_assoc($psq)) {
-                              ?>
-                                <option ><?php echo $row["foodname"]; ?> </option>
-                              <?php
-                              $i++;
-                              }
-                              ?>
-                    </select><br>
+                              
                     
-                    
+                              <input type="checkbox"  name="food_price"  onclick="totalit()" value="60"> rost<br>
+                              <input type="checkbox"  name="food_price"  onclick="totalit()" value="60"> lamb<br>
+                              <input type="checkbox"  name="food_price"  onclick="totalit()" value="50"> vine<br>
+                    <br>
+                    <input value="0" readonly="readonly" type="text" name="total" id="total">
+                   
                     <input type="submit" id="savebtn" value="Save" name="btnSave"/>
               </form>
           </div>

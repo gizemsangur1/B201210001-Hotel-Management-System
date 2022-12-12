@@ -22,7 +22,7 @@ error_reporting(0);
     <link rel="stylesheet" href="style.css">
     <title>Management Database</title>
     <style>
-          .menu,.staff-menu-bar,.room-menu-bar,.client-menu-bar, .menu-bar {
+          .menu,.staff-menu-bar,.room-menu-bar,.client-menu-bar,.restaurant-menu-bar, .menu-bar {
             position: fixed;
             top: 0;
             left: 0;
@@ -77,6 +77,7 @@ error_reporting(0);
         content: "\f039";
         }
         .staff-menu-bar li a:hover,.client-menu-bar li a:hover,.room-menu-bar li a:hover,
+        .restaurant-menu-bar li a:hover,
         .menu-bar li a:hover,
         .menu li a:hover,
         .menu li:first-child a {
@@ -108,6 +109,14 @@ error_reporting(0);
             transition: all 0.1s ease-in-out;
         }
         .client-menu-bar{
+            overflow:hidden;
+            left:5em;
+            z-index:5;
+            width:0;
+            height:0;
+            transition: all 0.1s ease-in-out;
+        }
+        .restaurant-menu-bar{
             overflow:hidden;
             left:5em;
             z-index:5;
@@ -163,6 +172,18 @@ error_reporting(0);
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         transition: background 0.1s ease-in-out;
         }
+        .restaurant-menu-bar li a{
+        display: block;
+        height: 4em;
+        line-height: 4em;
+        text-align:center;
+        color: #72739f;
+        text-decoration:none;  
+        position: relative;
+        font-family:verdana;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: background 0.1s ease-in-out;
+        }
         .menu-bar li:first-child a{
             height:5em;
             background: #267fdd;
@@ -182,6 +203,12 @@ error_reporting(0);
             line-height:5
         }
         .client-menu-bar li:first-child a{
+            height:5em;
+            background: #267fdd;
+            color: #fff;    
+            line-height:5
+        }
+        .restaurant-menu-bar li:first-child a{
             height:5em;
             background: #267fdd;
             color: #fff;    
@@ -223,6 +250,9 @@ error_reporting(0);
             .client-menu-bar li a{
                 width:100%;
             }
+            .restaurant-menu-bar li a{
+                width:100%;
+            }
             .menu-bar{
                 width:100%;
                 left:0;
@@ -243,6 +273,11 @@ error_reporting(0);
                 left:0;
                 height:0;
             }
+            .restaurant-menu-bar{
+                width:100%;
+                left:0;
+                height:0;
+            }
             .open{
                 width:100%;
                 height:auto;
@@ -252,7 +287,7 @@ error_reporting(0);
         }  
         }
         @media screen and (max-height: 34em){
-        .menu li,.staff-menu-bar,.room-menu-bar,.client-menu-bar,
+        .menu li,.staff-menu-bar,.room-menu-bar,.client-menu-bar,.restaurant-menu-bar
         .menu-bar {
             font-size:70%;
         }
@@ -266,10 +301,11 @@ error_reporting(0);
 </head>
 <body>
 <ul class="menu">
-<li title="home"><a href="management01.php" class="fa-home">menu</a></li>
+<li title="home"><a href="manager.php" class="fa-home">menu</a></li>
 <li title="staff"><a href="#" class="staff-button fa-user">Staff</a></li>
 <li title="Room"><a href="#" class="room-button fa-bed">Room</a></li>
 <li title="Client"><a href="#" class="client-button fa-money">Client</a></li>
+<li title="Restaurant"><a href="#" class="rest-button fa-cutlery">Restaurant</a></li>
 </ul>
 
 <ul class="staff-menu-bar">
@@ -287,6 +323,11 @@ error_reporting(0);
   <li><a href="clientinfo.php">Client Informations</a></li>
   <li><a href="roombills.php">Room Billls</a></li>
   <li><a href="oldroombill.php">Old Room Billls</a></li>
+</ul>
+<ul class="restaurant-menu-bar">
+  <li><a href="#" class="rest-button">Menu</a></li>
+  <li><a href="restaurantbills.php">Restaurant Bills</a></li>
+  <li><a href="oldrestaurantbills.php">Old Restaurant Bills</a></li>
 </ul>
         <div class="row" style="text-align:center">
           <h1>Room Bills</h1>
@@ -310,7 +351,7 @@ error_reporting(0);
                                       <td><?php echo $row["room_bill"]; ?></td>
                                       <td><?php echo $row["rbill_id"]; ?></td>
                                       <td><a href="deleteroombill.php?delete=<?=$row['rbill_id']?>" onclick="return confirm('Silinsin mi?')" class="btn btn-danger">Kaldır</a></td>
-                                      <td><button name="send" value="send">SEND</button></td>
+                                    
                                   </tr>
                               <?php
                               $i++;

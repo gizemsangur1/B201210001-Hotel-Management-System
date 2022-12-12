@@ -1,7 +1,6 @@
 <?php
 
 $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres password= rnyclvrby");
-    $psq = pg_query("SELECT * FROM room_situation");
     if(isset($_POST["btnSave"])&&$_POST["btnSave"]=="Save")
         {
             $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres password= rnyclvrby");

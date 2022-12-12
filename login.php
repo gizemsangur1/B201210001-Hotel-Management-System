@@ -9,10 +9,10 @@
 
       $result=pg_query($cn,$sql);
       if(pg_num_rows($result)==1){
-        header('Location:/' .$uname.  '.php');
+        header('Location:/PROJE/' .$uname.  '.php');
         exit();
       }else{
-        echo "wrong";
+        echo "wrong username or password";
       }
 
     }
@@ -30,14 +30,26 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+    <style>
+      #formdivgiris{
+        position: relative;
+        top:15%;
+      }
+      input[type=text],input[type=password]{
+        width: calc(100%-20px);
+        transition:0.3s all cubic-bezier(0.175,0.885,0.32,1.275);
+      }
+      input[type=text]:focus,input[type=password]:focus{
+        transform:scale(1.2);
+      }
+    </style>
     <title>Log In</title>
 </head>
 <body>
     <section id="first">
       
-        <div class="row"></div>
-        <div class="row">
+       
+        <div class="row" style="height:100vh;">
           <div class="col-sm-4"></div>
           <div class="col-sm-4" id="formdivgiris">
               <form class="logform" name="formlog" action="" method="post">
@@ -46,11 +58,11 @@
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">username</label>
-                    <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" name="username" id="exampleInputEmail1" placeholder="Username" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+                    <input type="password" class="form-control" name="password" placeholder="password" id="exampleInputPassword1">
                   </div>
                   <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
