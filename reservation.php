@@ -2,22 +2,24 @@
 
 $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres password= rnyclvrby");
     $psq = pg_query("SELECT * FROM room_situation");
+    
     if(isset($_POST["btnSave"])&&$_POST["btnSave"]=="Save")
-        {
-            $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres password= rnyclvrby");
-            $c_name=$_POST["name1"];
-            $c_surname=$_POST["surname1"];
-            $c_phone=$_POST["phone_number1"];
-            $c_mail=$_POST["mail1"];
-            $c_nationalid=$_POST["nid1"];
-            $c_roomtype=$_POST["room"];
-            $checkin=$_POST["checkin"];
-            $checkout=$_POST["checkout"];
-            $query="call add_client('".$c_name."','".$c_surname."',".$c_phone.",".$c_nationalid.",'".$c_mail."',".$c_roomtype.",'".$checkin."','".$checkout."')";
-            $res=pg_query($cn,$query);
+    {       
+      $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres password= rnyclvrby");
+      $c_name=$_POST["name1"];
+      $c_surname=$_POST["surname1"];
+      $c_phone=$_POST["phone_number1"];
+      $c_mail=$_POST["mail1"];
+      $c_nationalid=$_POST["nid1"];
+      $c_roomtype=$_POST["room"];
+      $checkin=$_POST["checkin"];
+      $checkout=$_POST["checkout"];
+      $query="call add_client('".$c_name."','".$c_surname."',".$c_phone.",".$c_nationalid.",'".$c_mail."','".$c_roomtype."','".$checkin."','".$checkout."')";
+      $res=pg_query($cn,$query);
 
-            header("home.php");
-        }
+      header("home.php");
+      
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +27,7 @@ $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres passw
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
     <style>
       .loginbox{
         position: relative;
@@ -81,7 +84,8 @@ $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres passw
                                 $i=0;
                                 while($row=pg_fetch_assoc($psq)) {
                                 ?>
-                                  <option ><?php echo $row["room_price"]; ?></option>
+                                  <option > <?php echo $row["roomtype"]; ?></option>
+                                 
                                 <?php
                                 $i++;
                                 }

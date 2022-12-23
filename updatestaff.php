@@ -358,6 +358,7 @@
                                 <option value="valet">Valet</option>
                                 <option value="receptionist">Reseptionist</option>
                                 <option value="waiter">Waiter</option>
+                                <option value="manager">Manager</option>
                             </select><br>
                             <input type="submit" id="savebtn"value="Save" name="btnSave"/>
                             

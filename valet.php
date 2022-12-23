@@ -39,8 +39,6 @@
             <table class="table  table-striped">
                             <tr>
                                 <th>Id</th>
-                                
-                                
                                 <th>Status</th>
                             </tr>
                             <?php
@@ -53,9 +51,9 @@
                                     <td>
                                       <?php
                                         if($row['status']==1){
-                                          echo '<p><a href="status.php?id='.$row['id'].'&status=0">enable</a></p>';
+                                          echo '<p><a href="status.php?id='.$row['id'].'&status=0">available</a></p>';
                                         }else{
-                                          echo '<p><a href="status.php?id='.$row['id'].'&status=1">disable</a></p>';
+                                          echo '<p><a href="status.php?id='.$row['id'].'&status=1">unavailable</a></p>';
                                         }
                                       ?>
                                     </td>

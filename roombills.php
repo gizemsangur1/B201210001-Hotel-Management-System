@@ -351,6 +351,7 @@ error_reporting(0);
                                       <td><?php echo $row["room_bill"]; ?></td>
                                       <td><?php echo $row["rbill_id"]; ?></td>
                                       <td><a href="deleteroombill.php?delete=<?=$row['rbill_id']?>" onclick="return confirm('Silinsin mi?')" class="btn btn-danger">Kaldır</a></td>
+                                      
                                     
                                   </tr>
                               <?php

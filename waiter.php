@@ -1,8 +1,8 @@
 <?php
 
 $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres password= rnyclvrby");
-    $psq = pg_query("SELECT * FROM foods");
-    $psq2 = pg_query("SELECT * FROM restaurant");
+   
+    $psq2 = pg_query("SELECT * FROM restables");
     if(isset($_POST["btnSave"])&&$_POST["btnSave"]=="Save")
         {
             $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres password= rnyclvrby");
@@ -61,7 +61,7 @@ $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres passw
                               $i=0;
                               while($row=pg_fetch_assoc($psq2)) {
                               ?>
-                                <option ><?php echo $row["table_num"]; ?></option>
+                                <option ><?php echo $row["tablenum"]; ?></option>
                               <?php
                               $i++;
                               }

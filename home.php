@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 $cn=pg_connect("host=localhost port=5432 dbname=managementdb user=postgres password= rnyclvrby");
     if(isset($_POST["btnSave"])&&$_POST["btnSave"]=="Save")
         {
