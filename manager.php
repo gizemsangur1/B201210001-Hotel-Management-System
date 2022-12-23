@@ -14,11 +14,64 @@
    
     <title>Management Database</title>
     <style>
-        .header1 h1{
-            text-align: center;
+        h1{
             position: relative;
-            left: 7%;
+            text-align:center;
+            justify-content:center;
+            
         }
+        img{
+            position: relative;
+            left:63%;
+            height:600px;
+        }
+        .arrows-body{
+            padding:0;
+            top:45%;
+            left:12%;
+            position:absolute;
+            display:flex;
+            justify-content:center;
+        }
+        .arrow{
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-top:12px solid #72739f;
+            border-left:12px solid #72739f;
+            transform:rotate(-45deg);
+            animation:arrow-load 2s infinite;
+        }
+        .arrow:nth-child(1){
+            left:25px;
+            animation-delay:-0.4s;
+        }
+        .arrow:nth-child(2){
+            
+            animation-delay:-0.2s;
+        }
+        .arrow:nth-child(3){
+            right:25px;
+            
+        }
+        @keyframes arrow-load
+        {
+            0%
+            {
+               opacity: 0;
+               transform:rotate(-45deg) translate(60px,60px); 
+            }
+            0%
+            {
+               opacity:1;
+            }
+            100%
+            {
+               opacity: 0;
+               transform:rotate(-45deg) translate(-60px,-60px); 
+            }
+        }
+      
           .menu,.staff-menu-bar,.room-menu-bar,.client-menu-bar,.restaurant-menu-bar, .menu-bar {
             position: fixed;
             top: 0;
@@ -328,10 +381,13 @@
   <li><a href="restaurantbills.php">Restaurant Bills</a></li>
   <li><a href="oldrestaurantbills.php">Old Restaurant Bills</a></li>
 </ul>
-
-<div class="row" style="height:100vh;">
-        <div class="header1"><h1>WELCOME TO THE DRAGONFLY MANAGER DATABASE</h1></div>
+<h1>WELCOME TO THE <br> DRAGONFLY INN'S DATABASE <br>MANAGEMENT SYSTEM</h1>
+<div class="arrows-body">  
+     <div class="arrow"></div>
+     <div class="arrow"></div>
+     <div class="arrow"></div>
 </div>
+<img src="./f.png" alt="" srcset="">
 
 
 
