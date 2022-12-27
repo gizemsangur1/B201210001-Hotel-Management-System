@@ -324,7 +324,6 @@
 </ul>
 <ul class="restaurant-menu-bar">
   <li><a href="#" class="rest-button">Menu</a></li>
-  <li><a href="restaurantbills.php">Restaurant Bills</a></li>
   <li><a href="oldrestaurantbills.php">Old Restaurant Bills</a></li>
 </ul>
         <div class="row" style="text-align:center">
@@ -333,7 +332,8 @@
         <div class="row">
           <div class="col-sm-4"></div>
           <div  class="col-sm-4">
-            <table class="table table-striped">
+          <input type="text" name="" id="myInput" placeholder="Name" onkeyup="tableSearch()">
+            <table class="table table-striped" id="myTable">
                           <tr>
                               <th>Name</th>
                               <th>Surname</th>
@@ -368,6 +368,31 @@
             </table>   
         </div>
         <div class="col-sm-4"></div>
+        <script  type="application/javascript">
+            function tableSearch(){
+                let input,filter,table,tr,td,txtValue;
+
+                input=document.getElementById("myInput");
+                filter=input.value.toUpperCase();
+                table=document.getElementById("myTable");
+                tr=table.getElementsByTagName("tr");
+
+                for(let i=0;i<tr.length;i++)
+                {
+                    td=tr[i].getElementsByTagName("td")[0];
+                    if(td){
+                        txtValue=td.textContent || td.innerText;
+                        if(txtValue.toUpperCase().indexOf(filter) > -1)
+                        {
+                            tr[i].style.display="";
+                        }else{
+                            tr[i].style.display="none"; 
+                        }
+                    }
+                }
+            }
+
+        </script>
         <script src="nav.js"></script>
 </body>
 </html>

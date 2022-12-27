@@ -326,7 +326,6 @@ error_reporting(0);
 </ul>
 <ul class="restaurant-menu-bar">
   <li><a href="#" class="rest-button">Menu</a></li>
-  <li><a href="restaurantbills.php">Restaurant Bills</a></li>
   <li><a href="oldrestaurantbills.php">Old Restaurant Bills</a></li>
 </ul>
         <div class="row" style="text-align:center">
@@ -338,7 +337,7 @@ error_reporting(0);
                 <table class="table table-striped">
                               <tr>
                                   <th>National ID of the client</th>
-                                  <th>Price of The Room</th>
+                                  <th>Total of The Bill</th>
                                   <th>Bill ID</th>
                                   <th>Delete</th>
                               </tr>
@@ -348,7 +347,7 @@ error_reporting(0);
                               ?>
                                   <tr>
                                       <td><?php echo $row["client_nid"]; ?></td>
-                                      <td><?php echo $row["room_bill"]; ?></td>
+                                      <td><?php echo $row["roomtotal"]; ?></td>
                                       <td><?php echo $row["rbill_id"]; ?></td>
                                       <td><a href="deleteroombill.php?delete=<?=$row['rbill_id']?>" onclick="return confirm('Silinsin mi?')" class="btn btn-danger">Kaldır</a></td>
                                       

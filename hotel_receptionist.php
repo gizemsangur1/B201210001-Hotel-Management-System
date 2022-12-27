@@ -20,7 +20,7 @@ error_reporting(0);
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Management Database</title>
+    <title>Hotel Receptionist</title>
    
 </head>
 <body>
@@ -46,7 +46,7 @@ error_reporting(0);
                                       <td><?php echo $row["client_nid"]; ?></td>
                                       <td><?php echo $row["room_bill"]; ?></td>
                                       <td><?php echo $row["rbill_id"]; ?></td>
-                                      <td><a href="deleteroombill.php?delete=<?=$row['rbill_id']?>" onclick="return confirm('Silinsin mi?')" class="btn btn-danger">Kaldır</a></td>
+                                      <td><a href="deleteroombill2.php?delete=<?=$row['rbill_id']?>" onclick="return confirm('Silinsin mi?')" class="btn btn-danger">Kaldır</a></td>
                                       
                                   </tr>
                               <?php

@@ -322,7 +322,6 @@
 </ul>
 <ul class="restaurant-menu-bar">
   <li><a href="#" class="rest-button">Menu</a></li>
-  <li><a href="restaurantbills.php">Restaurant Bills</a></li>
   <li><a href="oldrestaurantbills.php">Old Restaurant Bills</a></li>
 </ul>
             <div class="row" style="text-align:center">
@@ -331,17 +330,18 @@
             <div class="row">
               <div class="col-sm-4"></div>
               <div class="col-sm-4" >
-                  <table class="table table-striped">
+              <input type="text" name="search" id="myInput" placeholder="Name" onkeyup="tableSearch()">
+                  <table class="table table-striped" id="myTable">
                                 <tr>
                                     <th>Name</th>
                                     <th>Surname</th>
                                     <th>Phone</th>
                                     <th>Mail</th>
                                     <th>National ID:</th>
-                                    <th>Room Type</th>
                                     <th>Client ID</th>
                                     
                                 </tr>
+                                
                                 <?php
                                 $i=0;
                                 while($row=pg_fetch_assoc($psq)) {
@@ -352,7 +352,6 @@
                                         <td><?php echo $row["phone"]; ?></td>
                                         <td><?php echo $row["mail"]; ?></td>
                                         <td><?php echo $row["nationalid"]; ?></td>
-                                        <td><?php echo $row["roomtype"]; ?></td>
                                         <td><?php echo $row["clientid"]; ?></td>
                                         
                                         
@@ -367,6 +366,31 @@
               <div class="col-sm-4"></div>
             </div>
         </div>
+        <script  type="application/javascript">
+            function tableSearch(){
+                let input,filter,table,tr,td,txtValue;
+
+                input=document.getElementById("myInput");
+                filter=input.value.toUpperCase();
+                table=document.getElementById("myTable");
+                tr=table.getElementsByTagName("tr");
+
+                for(let i=0;i<tr.length;i++)
+                {
+                    td=tr[i].getElementsByTagName("td")[0];
+                    if(td){
+                        txtValue=td.textContent || td.innerText;
+                        if(txtValue.toUpperCase().indexOf(filter) > -1)
+                        {
+                            tr[i].style.display="";
+                        }else{
+                            tr[i].style.display="none"; 
+                        }
+                    }
+                }
+            }
+
+        </script>
         <script src="nav.js"></script>
 </body>
 </html>

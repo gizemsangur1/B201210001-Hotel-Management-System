@@ -323,7 +323,6 @@
 </ul>
 <ul class="restaurant-menu-bar">
   <li><a href="#" class="rest-button">Menu</a></li>
-  <li><a href="restaurantbills.php">Restaurant Bills</a></li>
   <li><a href="oldrestaurantbills.php">Old Restaurant Bills</a></li>
 </ul>
         <div class="row" style="text-align:center">
