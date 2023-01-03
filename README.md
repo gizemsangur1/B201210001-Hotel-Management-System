@@ -14,3 +14,7 @@ The second one is for a manager and other workers:
 ![image](https://user-images.githubusercontent.com/54063806/210419650-c860fad1-794b-49da-a31f-47689884364c.png)
 ![image](https://user-images.githubusercontent.com/54063806/210419695-a5789582-9eaa-4748-bbcf-e4d1c691ca23.png)
 ![image](https://user-images.githubusercontent.com/54063806/210419721-8c335729-937a-4da2-9141-14f3fe9563fb.png)
+![image](https://user-images.githubusercontent.com/54063806/210420253-082cfe60-74d0-4716-ae1e-a4d347012d4b.png)
+![image](https://user-images.githubusercontent.com/54063806/210420305-8bfde2da-2178-4435-9967-e314e950a9d1.png)
+![image](https://user-images.githubusercontent.com/54063806/210420359-bbff1739-81c4-42f5-b675-535e3e53239c.png)
+
